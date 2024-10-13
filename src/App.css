@@ -1,38 +1,369 @@
-.App {
-  text-align: center;
+/* Estilos globais */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+html, body {
+  background-color: #1c1f2e !important; /* Fundo escuro */
+  height: 100%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+#root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+/* Centralizando a página de login */
+.login {
+  width: 350px;
+  padding: 30px;
+  background-color: #2f3244;
+  border-radius: 10px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  color: #ffffff;
+}
+
+.login h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #ffffff;
+  font-size: 24px;
+}
+
+.login label {
+  font-size: 14px;
+  color: #b0b3c1;
+}
+
+.login input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  background-color: #3c3f52;
+  border: none;
+  color: white;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.login input:focus {
+  background-color: #4a4d60;
+  border-color: #007bff;
+  outline: none;
+}
+
+.login button {
+  width: 100%;
+  padding: 10px;
+  background-color: #ff6600;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+  margin-top: 20px;
+}
+
+.login button:hover {
+  background-color: #ff8500;
+}
+
+/* Estilos do feed */
+.feed {
+  padding: 20px;
+}
+
+.post-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.post-card {
+  width: 100%;
+  max-width: 600px;
+  background-color: #2f3244;
+  margin-bottom: 20px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  color: white;
+}
+
+.post-card h3 {
+  font-size: 18px;
+  color: #ff6600;
+  margin-bottom: 10px;
+}
+
+.post-card p {
+  font-size: 14px;
+  color: #b0b3c1;
+}
+
+.post-card .post-footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  font-size: 12px;
+}
+
+.post-card .post-footer span {
+  color: #b0b3c1;
+}
+
+.navbar {
+  width: 100%;
+  background-color: #1c1f2e;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  border-bottom: 2px solid #ff6600;
+}
+
+.navbar-logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #ff6600;
+}
+
+.navbar-user-icon {
+  font-size: 16px;
+  color: white;
+}
+
+.post-creation {
+  width: 100%;
+  max-width: 600px;
+  margin: 20px auto;
+  background-color: #2f3244;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.post-creation input {
+  width: 100%;
+  padding: 10px;
+  background-color: #3c3f52;
+  border: none;
+  color: white;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.post-creation button {
+  width: 100%;
+  padding: 10px;
+  background-color: #ff6600;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+.post-creation button:hover {
+  background-color: #ff8500;
+}
+
+.footer {
+  margin-top: 30px;
+  text-align: center;
+  color: #b0b3c1;
+}
+
+.footer a {
+  color: #ff6600;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  color: #ff8500;
+}
+
+.navbar-user {
+  color: white;
+  font-size: 18px;
+  margin-right: 20px;
+}
+
+/* Modal - Personalização */
+/* Ajuste da aparência do modal */
+.custom-modal .modal-content {
+  background-color: #2f3244; /* Cor de fundo */
+  border-radius: 10px;
+  padding: 20px;
+  color: white;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3);
+  max-width: 600px;
+  margin: auto;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Ajuste no título do modal */
+.custom-modal .modal-title {
+  font-size: 22px;
+  font-weight: bold;
+  color: #ff6600; /* Cor laranja */
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2); /* Aumentar nitidez */
+}
+
+/* Ajustes nos campos de texto */
+.custom-modal .modal-body input, 
+.custom-modal .modal-body textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  background-color: #3c3f52; /* Cor do campo de texto */
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-size: 14px;
+}
+
+.custom-modal .modal-body input:focus, 
+.custom-modal .modal-body textarea:focus {
+  background-color: #4a4d60;
+  outline: none;
+  box-shadow: 0 0 5px #007bff; /* Realçar o foco */
+}
+
+/* Alinhamento e estilização dos botões */
+.custom-modal .modal-footer {
+  display: flex;
+  justify-content: flex-end; /* Alinha os botões à direita */
+  gap: 10px; /* Espaço entre os botões */
+  padding-top: 15px;
+}
+
+.custom-modal .btn-close {
+  background-color: #6c757d;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.custom-modal .btn-close:hover {
+  background-color: #5a6268;
+}
+
+.custom-modal .btn-post {
+  background-color: #ff6600;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+.custom-modal .btn-post:hover {
+  background-color: #ff8500;
+}
+
+/* Ajuste do ícone de fechamento */
+.custom-modal .modal-header .close {
+  font-size: 1.5rem;
+  color: #ff6600;
+}
+
+.modal-body textarea {
+  height: 120px; /* Altura do campo de conteúdo */
+}
+
+/* Alinhamento dos botões no modal */
+.custom-modal .modal-footer button {
+  min-width: 80px; /* Largura mínima para consistência */
+  margin: 0;
+  font-size: 14px;
+  cursor: pointer;
+}
+.register {
+  width: 350px;
+  padding: 30px;
+  background-color: #2f3244; /* Fundo do modal */
+  border-radius: 10px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.register h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #ffffff;
+  font-size: 24px;
+}
+
+.register label {
+  font-size: 14px;
+  color: #b0b3c1;
+}
+
+.register input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  background-color: #3c3f52;
+  border: none;
+  color: white;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.register input:focus {
+  background-color: #4a4d60;
+  border-color: #007bff;
+  outline: none;
+}
+
+.register button {
+  width: 100%;
+  padding: 10px;
+  background-color: #ff6600;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+  margin-top: 20px;
+}
+
+.register button:hover {
+  background-color: #ff8500;
+}
+
+/* Estilo do link para login */
+.register-link {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.register-link a {
+  color: #ff6600;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.register-link a:hover {
+  color: #ff8500;
 }
